@@ -1,0 +1,25 @@
+# Sensitive files (Credentials / Tokens)
+token.txt
+*.log
+
+# Node & dependencies
+node_modules/
+package-lock.json
+
+# Temporary scripts
+test_*.js
+temp_*.js
+*.tmp
+convert_to_pdf.ps1
+create_workflow_files.js
+extract_all_manuals.js
+generate_knowledge_base.js
+read_commitment.js
+search_bg.js
+search_bundle.js
+find_routes.js
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store

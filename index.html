@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ศูนย์ข้อมูลและคู่มือปฏิบัติงาน SMART ERPG - วิทยาลัยชุมชนหนองบัวลำภู</title>
+  <!-- Google Fonts: Sarabun & Prompt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Mermaid.js for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #475569;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    h1, h2, h3, h4, .font-prompt {
+      font-family: 'Prompt', sans-serif;
+    }
+    header {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.2);
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 16px;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 15px auto;
+    }
+    .header-badges {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .header-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      backdrop-filter: blur(5px);
+    }
+    .nav-container {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .nav-tabs {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      padding: 0 20px;
+    }
+    .tab-btn {
+      padding: 16px 20px;
+      font-family: 'Prompt', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      color: var(--primary);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 28px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .alert-card {
+      background: #fff1f2;
+      border-left: 5px solid var(--danger);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+    .alert-card h3 {
+      color: #be123c;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .alert-card ul {
+      margin-left: 20px;
+      color: #475569;
+    }
+    .alert-card li {
+      margin-bottom: 6px;
+    }
+    .mermaid-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 12px 14px;
+      text-align: left;
+      font-family: 'Prompt', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14.5px;
+      vertical-align: top;
+    }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:hover { background: #f1f5f9; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-paper { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+    .badge-eoffice { background: #dcfce7; color: #166534; }
+    .badge-erp { background: #fce7f3; color: #9d174d; }
+    .badge-bank { background: #fef3c7; color: #92400e; }
+    .search-box {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 280px;
+      padding: 12px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 15px;
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+    .filter-select {
+      padding: 12px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Prompt', sans-serif;
+      font-size: 14px;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Prompt', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-outline { background: #fff; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-outline:hover { background: #f1f5f9; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .grid-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .link-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .link-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .link-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .link-title {
+      font-family: 'Prompt', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .link-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+    footer a { color: #38bdf8; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>ศูนย์ข้อมูลและคู่มือปฏิบัติงาน SMART ERPG</h1>
+    <p>ระบบบริหารจัดการทรัพยากรองค์กร วิทยาลัยชุมชนหนองบัวลำภู สถาบันวิทยาลัยชุมชน (ICCS)</p>
+    <div class="header-badges">
+      <span class="header-badge">🏛️ วิทยาลัยชุมชนหนองบัวลำภู</span>
+      <span class="header-badge">📅 ปีงบประมาณ พ.ศ. 2570</span>
+      <span class="header-badge">📚 คลังคู่มือทางการ 27 เล่ม (11 หมวด)</span>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <div class="nav-container">
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('workflow')">🔄 ผังกระบวนการทำงาน 10 ขั้นตอน</button>
+      <button class="tab-btn" onclick="switchTab('manuals')">📚 คลังคู่มือ SMART ERPG (27 เล่ม)</button>
+      <button class="tab-btn" onclick="switchTab('guidelines')">⚖️ แนวทางบริหารงบประมาณ 2570</button>
+      <button class="tab-btn" onclick="switchTab('portals')">🔗 ลิงก์ระบบงานสำคัญ</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- TAB 1: WORKFLOW -->
+    <div id="tab-workflow" class="tab-content active">
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
+          <div>
+            <h2 class="card-title">🔄 ผังกระบวนการยืมเงินและขอเบิกจ่าย (e-Office สู่ระบบ SMART ERPG)</h2>
+            <p style="color: var(--text-muted); font-size: 14.5px;">วิทยาลัยชุมชนหนองบัวลำภู ประจำปีงบประมาณ พ.ศ. 2570</p>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <a href="ผังกระบวนการทำงาน_eOffice_สู่_ERP_วชช_หนองบัวลำภู.pdf" target="_blank" class="btn btn-primary">📄 ดาวน์โหลด PDF (พร้อมพิมพ์)</a>
+            <a href="ผังกระบวนการทำงาน_eOffice_สู่_ERP_วชช_หนองบัวลำภู.docx" download class="btn btn-outline">📝 ไฟล์ Word (.docx)</a>
+          </div>
+        </div>
+
+        <div class="alert-card">
+          <h3>🚨 กฎเหล็กสำคัญ: ต้องผูกพันงบประมาณในระบบ ERP ก่อนจัดกิจกรรมเสมอ</h3>
+          <ul>
+            <li><strong>เมื่อเอกสารผ่านการอนุมัติใน e-Office แล้ว:</strong> จะต้องนำรายการงบประมาณไปบันทึกขอผูกพันงบประมาณในระบบ ERP (เมนู <code>bgdt07</code>) และรอให้ ผอ. กดอนุมัติในระบบ ERP ก่อนเสมอ</li>
+            <li><strong>หากมิได้ผูกพันงบประมาณในระบบ ERP:</strong> จะไม่ได้รับอนุมัติให้ดำเนินกิจกรรมและไม่สามารถเบิกจ่ายเงินได้ทุกกรณี</li>
+          </ul>
+        </div>
+
+        <h3 class="font-prompt" style="font-size: 17px; margin-bottom: 10px;">📊 ผังภาพรวมกระบวนการทำงาน</h3>
+        <div class="mermaid-box">
+          <div class="mermaid">
+flowchart TD
+    S1["<b>1. ผู้ขอยืม / ขอเบิก</b><br>ทำเอกสารผ่านตามลำดับขั้นของกลุ่มงานตนเอง"] --> S2["<b>2. ผ่านการตรวจโดยงานการเงิน</b><br>ตรวจระเบียบและอัตราค่าใช้จ่ายตามสิทธิ์"]
+    S2 --> S3["<b>3. ผ่านการตรวจโดยงานแผนฯ</b><br>ตรวจรหัสกิจกรรมย่อย/งบประมาณคงเหลือจริง<br><i>(ส่งคืนเอกสารให้ผู้ขอเบิก)</i>"]
+    S3 --> S4["<b>4. อัปโหลดลงระบบ e-Office</b><br>สแกนเอกสารเสนอแฟ้มสารบรรณอิเล็กทรอนิกส์"]
+    S4 --> S5["<b>5. ผอ.วชช. พิจารณาอนุมัติ</b><br>ลงนามอนุมัติในระบบ e-Office"]
+    S5 --> S6["<b>6. การเงินส่งกลับผู้ขอเบิก</b><br>รับเรื่องอนุมัติและแจ้งผู้ขอเบิกเข้าทำใน ERP"]
+    S6 --> S7["<b>7. บันทึกเข้าระบบ SMART ERPG</b><br>• บันทึกผูกพันงบประมาณ (bgdt07)<br>• ขอยืมเงิน / PO จัดซื้อจัดจ้าง<br><i>(ผอ. กดอนุมัติในระบบ ERP ออกเลขที่ใบผูกพัน)</i>"]
+    S7 --> S8["<b>8. งานการเงิน วางฎีกาเบิก</b><br>ดึงเลขที่ใบผูกพันตั้งฎีกาเบิกเงินในระบบ ERP"]
+    S8 --> S9["<b>9. เบิกจ่ายและโอนเงิน</b><br>อนุมัติจ่าย โอนเงินเข้าบัญชีผู้ยืม/จ่ายตรงผู้ขาย (KTB)"]
+    S9 --> S10["<b>10. ส่งใช้เงินยืมผ่านระบบ ERP</b><br>นำหลักฐานค่าใช้จ่ายจริงมาหักล้าง/ปิดสัญญายืม"]
+          </div>
+        </div>
+
+        <h3 class="font-prompt" style="font-size: 17px; margin: 30px 0 10px 0;">📋 ตารางรายละเอียด 10 ขั้นตอน</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 60px; text-align: center;">ลำดับ</th>
+              <th style="width: 200px;">ขั้นตอน</th>
+              <th style="width: 140px;">ผู้รับผิดชอบ</th>
+              <th style="width: 130px;">ระบบที่ใช้</th>
+              <th>รายละเอียดการปฏิบัติงานและเอกสาร</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">1</td>
+              <td><strong>จัดทำเอกสารและผ่านลำดับขั้น</strong></td>
+              <td>ผู้ขอยืม / ขอเบิก</td>
+              <td><span class="badge badge-paper">เอกสาร (กระดาษ)</span></td>
+              <td>จัดทำบันทึกข้อความขออนุมัติโครงการ/กิจกรรม พร้อมประมาณการค่าใช้จ่าย เสนอผ่านหัวหน้างาน/รอง ผอ. ตามสายงาน</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">2</td>
+              <td><strong>ผ่านการตรวจโดยการเงิน</strong></td>
+              <td>เจ้าหน้าที่การเงิน</td>
+              <td><span class="badge badge-paper">เอกสาร (กระดาษ)</span></td>
+              <td>ตรวจสอบความถูกต้องของประเภทค่าใช้จ่ายและอัตราตามระเบียบราชการ (ค่าตอบแทน, เบี้ยเลี้ยง, ที่พัก, วัสดุ ฯลฯ)</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">3</td>
+              <td><strong>ผ่านงานแผนงานฯ</strong></td>
+              <td>เจ้าหน้าที่งานแผน</td>
+              <td><span class="badge badge-paper">เอกสาร + ทะเบียนคุม</span></td>
+              <td>ตรวจสอบความสอดคล้องกับแผนปฏิบัติราชการ แหล่งเงิน ผลผลิต โครงการ <strong>รหัสกิจกรรมย่อย</strong> และยอดงบประมาณคงเหลือจริง <em>(เมื่อตรวจแล้วส่งคืนเอกสารให้ผู้ขอเบิก)</em></td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">4</td>
+              <td><strong>อัปโหลดลงระบบ e-Office</strong></td>
+              <td>ผู้ขอยืม / ขอเบิก</td>
+              <td><span class="badge badge-eoffice">ระบบ e-Office</span></td>
+              <td>นำเอกสารฉบับจริงที่ผ่านการลงนามตรวจสอบจากการเงินและงานแผนแล้ว สแกนอัปโหลดเข้าสู่ระบบสารบรรณอิเล็กทรอนิกส์ (e-Office) เสนอ ผอ.</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">5</td>
+              <td><strong>ผู้อำนวยการอนุมัติ</strong></td>
+              <td>ผอ. วชช.หนองบัวลำภู</td>
+              <td><span class="badge badge-eoffice">ระบบ e-Office</span></td>
+              <td>ผู้อำนวยการพิจารณาลงนามและอนุมัติโครงการ/การใช้จ่ายงบประมาณในระบบ e-Office</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">6</td>
+              <td><strong>การเงินส่งกลับผู้ขอเบิก</strong></td>
+              <td>เจ้าหน้าที่การเงิน</td>
+              <td><span class="badge badge-eoffice">ระบบ e-Office</span></td>
+              <td>งานการเงินรับเรื่องที่ ผอ. อนุมัติแล้วจากระบบ e-Office ส่งต่อกลับไปยังผู้ขอยืม/ขอเบิก เพื่อแจ้งให้เริ่มดำเนินการในระบบ SMART ERPG</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">7</td>
+              <td><strong>บันทึกข้อมูลในระบบ SMART ERPG</strong><br><small style="color: var(--danger);">(ต้องทำก่อนจัดกิจกรรม)</small></td>
+              <td>ผู้ขอเบิก / เจ้าหน้าที่พัสดุ</td>
+              <td><span class="badge badge-erp">SMART ERPG</span></td>
+              <td>เข้าระบบ <a href="https://erp.iccs.ac.th" target="_blank">erp.iccs.ac.th</a> ทำรายการ:<br>
+              • <strong>บันทึกผูกพันงบประมาณ (bgdt07):</strong> เลือกรหัสกิจกรรมย่อยและระบุยอดเงิน<br>
+              • <strong>สัญญายืมเงิน:</strong> บันทึกเอกสารขอยืมเงินทดรอง<br>
+              • <strong>จัดซื้อจัดจ้าง:</strong> บันทึกใบสั่งซื้อสั่งจ้าง (PO) ผ่านกลุ่มงานพัสดุ<br>
+              <em>*ผอ. เข้าระบบ ERP กดอนุมัติเพื่อล็อกงบและออก "เลขที่ใบผูกพันงบประมาณ"*</em></td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">8</td>
+              <td><strong>วางฎีกาเบิก</strong></td>
+              <td>เจ้าหน้าที่การเงิน</td>
+              <td><span class="badge badge-erp">SMART ERPG</span></td>
+              <td>งานการเงินดึงเลขที่ใบผูกพันงบประมาณ / สัญญายืมเงิน มาสร้างฎีกาเบิกเงินในระบบ ERP เพื่อตั้งยอดเบิกจ่าย</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">9</td>
+              <td><strong>เบิกจ่ายและโอนเงิน</strong></td>
+              <td>เจ้าหน้าที่การเงิน</td>
+              <td><span class="badge badge-bank">ระบบธนาคาร KTB</span></td>
+              <td>อนุมัติการจ่ายเงิน โอนเงินยืมเข้าบัญชีผู้ยืม หรือโอนเงินจ่ายตรงให้แก่ผู้ขาย/ผู้รับจ้าง พร้อมพิมพ์หลักฐานการจ่ายเงิน</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold;">10</td>
+              <td><strong>ส่งใช้เงินยืมผ่านระบบ ERP</strong></td>
+              <td>ผู้ยืมเงิน / การเงิน</td>
+              <td><span class="badge badge-erp">SMART ERPG</span></td>
+              <td>เมื่อดำเนินโครงการเสร็จสิ้น นำใบเสร็จและหลักฐานจ่ายจริงมาส่งใช้เงินยืมในระบบ ERP หากมีเงินเหลือให้ออกใบเสร็จรับคืนเงินยืมทดรองเพื่อปิดสัญญาอย่างถูกต้อง</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: MANUALS -->
+    <div id="tab-manuals" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">📚 คลังคู่มือการใช้งานระบบ SMART ERPG (27 เล่ม ครบ 11 หมวด)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">ดาวน์โหลดโดยตรงจากระบบสารสนเทศสถาบันวิทยาลัยชุมชน (ICCS) สามารถคลิกเปิดอ่านหรือดาวน์โหลดเก็บไว้ได้ทันที</p>
+
+        <div class="search-box">
+          <input type="text" id="manualSearch" class="search-input" placeholder="🔍 ค้นหาคู่มือ (เช่น ผูกพันงบ, ยืมเงิน, ครุภัณฑ์, วัสดุ, ฎีกา)..." oninput="filterManuals()">
+          <select id="categoryFilter" class="filter-select" onchange="filterManuals()">
+            <option value="">ทั้งหมด (11 หมวด)</option>
+            <option value="1.">1. การบริหารงบประมาณประจำปี</option>
+            <option value="2.">2. การเบิกจ่ายเงินงบประมาณ</option>
+            <option value="3.">3. การเบิกจ่ายเงินนอกงบประมาณ/เงินรายได้</option>
+            <option value="4.">4. การยืมเงินทดรอง</option>
+            <option value="5.">5. การรับ-คืนเงินหลักประกันสัญญา</option>
+            <option value="6.">6. เงินวิจัยและบริการวิชาการ</option>
+            <option value="7.">7. การรับ-จ่ายเงินทั่วไป</option>
+            <option value="8.">8. การกระทบยอดบัญชีธนาคาร</option>
+            <option value="9.">9. การโอนข้อมูลเข้าระบบบัญชีและปิดงบ</option>
+            <option value="10.">10. การบริหารงานระบบสินทรัพย์</option>
+            <option value="11.">11. การบริหารงานระบบคลังวัสดุ</option>
+          </select>
+        </div>
+
+        <table id="manualTable">
+          <thead>
+            <tr>
+              <th style="width: 60px; text-align: center;">ลำดับ</th>
+              <th>หัวข้อคู่มือการใช้งาน</th>
+              <th style="width: 140px; text-align: center;">Content ID</th>
+              <th style="width: 120px; text-align: center;">ขนาดไฟล์</th>
+              <th style="width: 140px; text-align: center;">เอกสาร</th>
+            </tr>
+          </thead>
+          <tbody id="manualTableBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: GUIDELINES -->
+    <div id="tab-guidelines" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">⚖️ แนวทางการบริหารงบประมาณ ประจำปีงบประมาณ พ.ศ. 2570</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">สรุปจากหนังสือสั่งการสถาบันวิทยาลัยชุมชน ด่วนที่สุด ที่ อว 0610(4)/6262 และ อว 0610(4)/6287 ลงวันที่ 8 ตุลาคม 2569</p>
+
+        <div class="alert-card">
+          <h3>📌 กฎเหล็ก 4 ข้อที่ต้องปฏิบัติตามอย่างเคร่งครัด</h3>
+          <ul>
+            <li><strong>1. ผูกพันงบประมาณในระบบ ERP ก่อนเสมอ:</strong> ทุกโครงการ/กิจกรรม ต้องขอผูกพันงบประมาณในระบบ ERP ให้เรียบร้อยล่วงหน้า มิฉะนั้นจะไม่ได้รับอนุมัติให้จัดกิจกรรมและไม่สามารถเบิกจ่ายเงินได้</li>
+            <li><strong>2. ห้ามถัวจ่ายข้ามรายการโดยพลการ:</strong> สถาบันฯ จัดสรรงบประมาณจำแนกตามรายการค่าใช้จ่ายที่แท้จริง หากงบไม่พอ ต้องเสนอขออนุมัติโอนเปลี่ยนแปลงงบประมาณไปยังสถาบันฯ</li>
+            <li><strong>3. กำหนดส่งคำขอโอนงบประมาณ:</strong> จัดส่งคำขอโอนเปลี่ยนแปลงงบประมาณไปยังสถาบันฯ <strong>ทุกวันพฤหัสบดี</strong> เพื่อให้สถาบันฯ พิจารณาให้แล้วเสร็จภายในวันศุกร์ของแต่ละสัปดาห์</li>
+            <li><strong>4. งบลงทุน (ค่าครุภัณฑ์):</strong> ต้องดำเนินการจัดซื้อจัดจ้างและก่อหนี้ผูกพัน (PO) ให้แล้วเสร็จภายใน <strong>ไตรมาสที่ 2</strong> มิฉะนั้นจะถูกดึงงบคืนเพื่อจัดทำร่าง พ.ร.บ. โอนงบประมาณ</li>
+          </ul>
+        </div>
+
+        <h3 class="font-prompt" style="font-size: 18px; margin: 30px 0 15px 0;">💰 สรุปกรอบวงเงินจัดสรร ครั้งที่ 1 (วชช.หนองบัวลำภู รวม 6,650,030 บาท)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>แผนงาน / หมวดรายจ่าย</th>
+              <th>รายการสำคัญ</th>
+              <th style="width: 150px; text-align: right;">วงเงิน (บาท)</th>
+              <th style="width: 120px; text-align: center;">ระยะเวลา</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. แผนงานบุคลากรภาครัฐ</strong></td>
+              <td>ค่าตอบแทนพนักงานราชการ (2,568,000) + สมทบประกันสังคมและกองทุนเงินทดแทน (66,500)</td>
+              <td style="text-align: right; font-weight: bold;">2,634,500</td>
+              <td style="text-align: center;">6 เดือน</td>
+            </tr>
+            <tr>
+              <td><strong>2. งบลงทุน (ค่าครุภัณฑ์)</strong></td>
+              <td>จัดซื้อครุภัณฑ์ตามรายการที่ได้รับจัดสรร <em>(ต้องก่อหนี้ในไตรมาส 2)</em></td>
+              <td style="text-align: right; font-weight: bold; color: var(--danger);">1,108,100</td>
+              <td style="text-align: center;">12 เดือน</td>
+            </tr>
+            <tr>
+              <td><strong>3.1 งบดำเนินงาน: ค่าตอบแทน</strong></td>
+              <td>ผู้สอนอนุปริญญา ภาค 1/69 (142,100) + ปฏิบัติงานนอกเวลา (162,000) + เบี้ยประชุม (259,500)</td>
+              <td style="text-align: right; font-weight: bold;">563,600</td>
+              <td style="text-align: center;">2 - 6 เดือน</td>
+            </tr>
+            <tr>
+              <td><strong>3.2 งบดำเนินงาน: ค่าใช้สอย</strong></td>
+              <td>จ้างเหมาบริการ (682,750) + เช่ารถยนต์ (297,000) + เช่าคอมพิวเตอร์ (432,000) + เดินทาง (150,000) + ซ่อมบำรุง (150,000) ฯลฯ</td>
+              <td style="text-align: right; font-weight: bold;">1,771,930</td>
+              <td style="text-align: center;">2 - 12 เดือน</td>
+            </tr>
+            <tr>
+              <td><strong>3.3 งบดำเนินงาน: ค่าวัสดุ</strong></td>
+              <td>วัสดุสำนักงาน (150,000) + น้ำมันเชื้อเพลิง (222,000) + วัสดุการศึกษา (44,500) + วัสดุรายหัว (5,400)</td>
+              <td style="text-align: right; font-weight: bold;">421,900</td>
+              <td style="text-align: center;">2 - 12 เดือน</td>
+            </tr>
+            <tr>
+              <td><strong>3.4 งบดำเนินงาน: ค่าสาธารณูปโภค</strong></td>
+              <td>ค่าไฟฟ้า น้ำประปา โทรศัพท์ สื่อสาร</td>
+              <td style="text-align: right; font-weight: bold;">150,000</td>
+              <td style="text-align: center;">12 เดือน</td>
+            </tr>
+            <tr style="background: #e0f2fe; font-weight: bold;">
+              <td colspan="2" style="font-size: 16px;">รวมงบประมาณรายจ่ายประจำปี 2570 (ครั้งที่ 1) ทั้งสิ้น</td>
+              <td style="text-align: right; font-size: 17px; color: var(--primary-dark);">6,650,030</td>
+              <td style="text-align: center;">บาท</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: PORTALS -->
+    <div id="tab-portals" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">🔗 ศูนย์รวมลิงก์ระบบสารสนเทศที่เกี่ยวข้อง</h2>
+        <p style="color: var(--text-muted); margin-bottom: 25px;">ทางลัดเข้าสู่ระบบงานสารสนเทศเพื่อการบริหารจัดการ วชช.หนองบัวลำภู</p>
+
+        <div class="grid-links">
+          <a href="https://erp.iccs.ac.th" target="_blank" class="link-card">
+            <div class="link-icon">🌐</div>
+            <div class="link-title">SMART ERPG (ระบบจริง)</div>
+            <div class="link-desc">ระบบการเงิน บัญชี พัสดุ และงบประมาณ สถาบันวิทยาลัยชุมชน (เข้าสู่ระบบด้วยบัญชีเจ้าหน้าที่)</div>
+          </a>
+
+          <a href="https://erp.iccs.ac.th/help/help01" target="_blank" class="link-card">
+            <div class="link-icon">📖</div>
+            <div class="link-title">หน้าระบบคู่มือ ERP (HELP01)</div>
+            <div class="link-desc">ศูนย์ดาวน์โหลดคู่มือและเอกสารการใช้งานระบบ SMART ERPG ต้นทาง</div>
+          </a>
+
+          <a href="https://erp-uat.iccs.ac.th" target="_blank" class="link-card">
+            <div class="link-icon">🧪</div>
+            <div class="link-title">SMART ERPG (ระบบทดสอบ UAT)</div>
+            <div class="link-desc">ระบบสำหรับทดลองบันทึกข้อมูลและฝึกซ้อมการใช้งานก่อนทำรายการจริง</div>
+          </a>
+
+          <div class="link-card" style="cursor: default;">
+            <div class="link-icon">📑</div>
+            <div class="link-title">ระบบสารบรรณ e-Office</div>
+            <div class="link-desc">ระบบสารบรรณอิเล็กทรอนิกส์สำหรับเสนอแฟ้มขออนุมัติโครงการและลงนามคำสั่ง</div>
+          </div>
+
+          <div class="link-card" style="cursor: default;">
+            <div class="link-icon">📊</div>
+            <div class="link-title">ระบบ AE (ติดตามประเมินผล)</div>
+            <div class="link-desc">ระบบติดตามตรวจสอบและประเมินผลตัวชี้วัดตามแผนปฏิบัติราชการประจำปี</div>
+          </div>
+
+          <div class="link-card" style="cursor: default;">
+            <div class="link-icon">🏦</div>
+            <div class="link-title">ระบบ GFMIS Thailand</div>
+            <div class="link-desc">ระบบบริหารการเงินการคลังภาครัฐแบบอิเล็กทรอนิกส์ สำหรับตรวจสอบวงเงินจัดสรร</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>จัดทำโดย <strong>วิทยาลัยชุมชนหนองบัวลำภู</strong> สถาบันวิทยาลัยชุมชน กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม</p>
+    <p style="margin-top: 5px; font-size: 13px;">พัฒนาและเผยแพร่ผ่าน GitHub Pages • อัปเดตล่าสุด: ตุลาคม 2569</p>
+  </footer>
+
+  <script>
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      const activeContent = document.getElementById('tab-' + tabId);
+      if (activeContent) activeContent.classList.add('active');
+    }
+
+    // Manuals Data (27 PDFs)
+    const manuals = [
+      { id: 2, title: "1.1 ขั้นตอนการจัดทำงบประมาณประจำปี", cid: 1284, size: "4.55 MB", file: "002_1.1 ขั้นตอนการจัดทำงบประมาณประจำปี.pdf" },
+      { id: 3, title: "1.2 ขั้นตอนการโอนงบ/เงินประจำงวด/เปลี่ยนแปลงรายการครุภัณฑ์", cid: 1286, size: "2.46 MB", file: "003_1.2 ขั้นตอนการโอนงบ_เงินประจำงวด_เปลี่ยนแปลงรายการครุภัณฑ์.pdf" },
+      { id: 5, title: "2.1 ขั้นตอนขอเบิกเงินงบประมาณผ่านใบสั่งซื้อสั่งจ้าง (จ่ายตรง)", cid: 1288, size: "8.17 MB", file: "005_2.1 ขั้นตอนขอเบิกเงินงบประมาณผ่านใบสั่งซื้อสั่งจ้าง (จ่ายตรง).pdf" },
+      { id: 6, title: "2.2 ขั้นตอนขอเบิกเงินงบประมาณ เพื่อขอรับเงินเข้าสถาบัน", cid: 1287, size: "4.24 MB", file: "006_2.2 ขั้นตอนขอเบิกเงินงบประมาณ เพื่อขอรับเงินเข้าสถาบัน.pdf" },
+      { id: 8, title: "3.1 ขั้นตอนเบิกจ่ายทั่วไป เงินนอกงบประมาณ/เงินรายได้", cid: 1289, size: "3.11 MB", file: "008_3.1 ขั้นตอนเบิกจ่ายทั่วไป เงินนอกงบประมาณ_เงินรายได้.pdf" },
+      { id: 10, title: "4.1 ขั้นตอนการจ่ายเงินยืมตามเอกสารขอยืม", cid: 1295, size: "5.12 MB", file: "010_4.1 ขั้นตอนการจ่ายเงินยืมตามเอกสารขอยืม.pdf" },
+      { id: 11, title: "4.2 ขั้นตอนการเบิกชดใช้เงินยืม (กรณียืมจากเงินงบประมาณ)", cid: 1294, size: "2.38 MB", file: "011_4.2 ขั้นตอนการเบิกชดใช้เงินยืม (กรณียืมจากเงินงบประมาณ).pdf" },
+      { id: 12, title: "4.3 ขั้นตอนขอเบิกชดใช้เงินยืม (กรณียืมจากเงินทดรองราชการ)", cid: 1293, size: "3.16 MB", file: "012_4.3 ขั้นตอนขอเบิกชดใช้เงินยืม (กรณียืมจากเงินทดรองราชการ).pdf" },
+      { id: 13, title: "4.4 ขั้นตอนการรับคืนเงินยืมทดรอง", cid: 1291, size: "1.36 MB", file: "013_4.4 ขั้นตอนการรับคืนเงินยืมทดรอง.pdf" },
+      { id: 15, title: "5.1 ขั้นตอนการรับหลักประกันสัญญา", cid: 1290, size: "0.80 MB", file: "015_5.1 ขั้นตอนการรับหลักประกันสัญญา.pdf" },
+      { id: 16, title: "5.2 ขั้นตอนการคืนหลักประกันสัญญา", cid: 1292, size: "0.97 MB", file: "016_5.2 ขั้นตอนการคืนหลักประกันสัญญา.pdf" },
+      { id: 18, title: "6.1 การรับเงิน-ตั้งเบิกเงินวิจัยและบริการวิชาการ", cid: 1296, size: "1.53 MB", file: "018_6.1 การรับเงิน-ตั้งเบิกเงินวิจัยและบริการวิชาการ.pdf" },
+      { id: 20, title: "7.1 ขั้นตอนการรับเงินทั่วไป", cid: 1297, size: "1.09 MB", file: "020_7.1 ขั้นตอนการรับเงินทั่วไป.pdf" },
+      { id: 21, title: "7.2 ขั้นตอนการรับเงินเบิกเกินส่งคืน", cid: 1298, size: "0.90 MB", file: "021_7.2 ขั้นตอนการรับเงินเบิกเกินส่งคืน.pdf" },
+      { id: 22, title: "7.3 ขั้นตอนการจ่ายเงินทั่วไป", cid: 1299, size: "0.78 MB", file: "022_7.3 ขั้นตอนการจ่ายเงินทั่วไป.pdf" },
+      { id: 24, title: "8.1 ขั้นตอนการกระทบยอดบัญชีธนาคาร", cid: 1300, size: "0.82 MB", file: "024_8.1 ขั้นตอนการกระทบยอดบัญชีธนาคาร.pdf" },
+      { id: 26, title: "9.1 ขั้นตอนการโอนข้อมูลการบันทึกบัญชีเข้าระบบบัญชี", cid: 1301, size: "0.87 MB", file: "026_9.1 ขั้นตอนการโอนข้อมูลการบันทึกบัญชีเข้าระบบบัญชี.pdf" },
+      { id: 27, title: "9.2 ขั้นตอนการบันทึกใบสำคัญโดยตรง", cid: 1302, size: "0.62 MB", file: "027_9.2 ขั้นตอนการบันทึกใบสำคัญโดยตรง.pdf" },
+      { id: 28, title: "9.3 ขั้นตอนการออกรายงานงบการเงิน", cid: 1303, size: "0.83 MB", file: "028_9.3 ขั้นตอนการออกรายงานงบการเงิน.pdf" },
+      { id: 30, title: "10.1 ขั้นตอนการรับและลงทะเบียนทรัพย์สิน", cid: 1304, size: "1.10 MB", file: "030_10.1 ขั้นตอนการรับและลงทะเบียนทรัพย์สิน.pdf" },
+      { id: 31, title: "10.2 ขั้นตอนการโอนย้ายทรัพย์สิน", cid: 1285, size: "1.05 MB", file: "031_10.2 ขั้นตอนการโอนย้ายทรัพย์สิน.pdf" },
+      { id: 32, title: "10.3 ขั้นตอนการตรวจนับและตัดจำหน่าย", cid: 1305, size: "1.33 MB", file: "032_10.3 ขั้นตอนการตรวจนับและตัดจำหน่าย.pdf" },
+      { id: 33, title: "10.4 ขั้นตอนการซ่อมบำรุงทรัพย์สิน", cid: 1306, size: "0.40 MB", file: "033_10.4 ขั้นตอนการซ่อมบำรุงทรัพย์สิน.pdf" },
+      { id: 35, title: "11.1 ขั้นตอนการรับวัสดุ", cid: 1307, size: "0.53 MB", file: "035_11.1 ขั้นตอนการรับวัสดุ.pdf" },
+      { id: 36, title: "11.2 ขั้นตอนการเบิกจ่ายวัสดุ", cid: 1308, size: "0.76 MB", file: "036_11.2 ขั้นตอนการเบิกจ่ายวัสดุ.pdf" },
+      { id: 37, title: "11.3 ขั้นตอนโอนย้ายวัสดุ", cid: 1309, size: "1.23 MB", file: "037_11.3 ขั้นตอนโอนย้ายวัสดุ.pdf" },
+      { id: 38, title: "11.4 ขั้นตอนการตรวจนับวัสดุประจำปี", cid: 1310, size: "1.15 MB", file: "038_11.4 ขั้นตอนการตรวจนับวัสดุประจำปี.pdf" }
+    ];
+
+    function renderManuals(items) {
+      const tbody = document.getElementById('manualTableBody');
+      tbody.innerHTML = '';
+      if (items.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 30px; color: #94a3b8;">ไม่พบคู่มือที่ตรงกับเงื่อนไขการค้นหา</td></tr>';
+        return;
+      }
+      items.forEach((m, idx) => {
+        const tr = document.createElement('tr');
+        const encodedFile = encodeURIComponent(m.file);
+        tr.innerHTML = `
+          <td style="text-align: center; font-weight: 500;">${idx + 1}</td>
+          <td><strong>${m.title}</strong></td>
+          <td style="text-align: center;"><code>${m.cid}</code></td>
+          <td style="text-align: center;">${m.size}</td>
+          <td style="text-align: center;">
+            <a href="คู่มือการใช้งาน/${encodedFile}" target="_blank" class="btn btn-primary" style="padding: 5px 12px; font-size: 13px;">📄 เปิดไฟล์ PDF</a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterManuals() {
+      const query = document.getElementById('manualSearch').value.toLowerCase();
+      const cat = document.getElementById('categoryFilter').value;
+      const filtered = manuals.filter(m => {
+        const matchesQuery = m.title.toLowerCase().includes(query) || String(m.cid).includes(query);
+        const matchesCat = cat === '' || m.title.startsWith(cat);
+        return matchesQuery && matchesCat;
+      });
+      renderManuals(filtered);
+    }
+
+    // Initial render
+    renderManuals(manuals);
+  </script>
+</body>
+</html>

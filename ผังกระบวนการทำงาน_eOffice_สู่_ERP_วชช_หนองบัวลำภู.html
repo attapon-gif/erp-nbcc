@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ผังกระบวนการทำงาน e-Office สู่ระบบ SMART ERPG - วชช.หนองบัวลำภู</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Sarabun', 'TH Sarabun PSK', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      margin: 0;
+      padding: 30px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .header {
+      text-align: center;
+      border-bottom: 3px solid #0284c7;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      color: #0f172a;
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      font-weight: 700;
+    }
+    .header h2 {
+      color: #0284c7;
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      font-weight: 600;
+    }
+    .header p {
+      color: #64748b;
+      margin: 0;
+      font-size: 15px;
+    }
+    .alert-box {
+      background: #fff1f2;
+      border-left: 5px solid #e11d48;
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin: 25px 0;
+    }
+    .alert-box h3 {
+      color: #be123c;
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+    .alert-box p, .alert-box ul {
+      margin: 0;
+      color: #475569;
+      font-size: 15px;
+    }
+    .mermaid-box {
+      background: #f1f5f9;
+      padding: 25px;
+      border-radius: 10px;
+      margin: 25px 0;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 15px;
+    }
+    th {
+      background: #0284c7;
+      color: #ffffff;
+      padding: 12px 14px;
+      font-weight: 600;
+      text-align: left;
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:hover { background: #f1f5f9; }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-paper { background: #e2e8f0; color: #475569; }
+    .badge-eoffice { background: #dcfce7; color: #166534; }
+    .badge-erp { background: #fce7f3; color: #9d174d; }
+    .badge-bank { background: #fef3c7; color: #92400e; }
+    .rule-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin-bottom: 15px;
+    }
+    .rule-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .btn-print {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #0284c7;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-print:hover { background: #0369a1; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { box-shadow: none; padding: 0; max-width: 100%; }
+      .btn-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <button class="btn-print" onclick="window.print()">🖨️ พิมพ์ / บันทึกเป็น PDF</button>
+
+  <div class="container">
+    <div class="header">
+      <h1>ผังกระบวนการทำงานและการบริหารงบประมาณ</h1>
+      <h2>เชื่อมโยงระบบ e-Office สู่ระบบ SMART ERPG</h2>
+      <p>วิทยาลัยชุมชนหนองบัวลำภู • ประจำปีงบประมาณ พ.ศ. 2570</p>
+      <p style="font-size: 13px; color: #94a3b8; margin-top: 5px;">อ้างอิง: หนังสือสถาบันวิทยาลัยชุมชน ด่วนที่สุด ที่ อว 0610(4)/6262 และ อว 0610(4)/6287</p>
+    </div>
+
+    <div class="alert-box">
+      <h3>🚨 ข้อบังคับสำคัญสูงสุด (กฎเหล็กประจำปีงบประมาณ 2570)</h3>
+      <ul>
+        <li><strong>ต้องผูกพันงบประมาณในระบบ ERP ก่อนจัดกิจกรรมเสมอ:</strong> หากโครงการใดมิได้บันทึกขอผูกพันงบประมาณในระบบ ERP ให้เรียบร้อยล่วงหน้า จะไม่ได้รับอนุมัติให้จัดกิจกรรมและไม่สามารถเบิกจ่ายเงินได้</li>
+        <li><strong>ห้ามถัวจ่ายข้ามรายการโดยพลการ:</strong> กรณีงบประมาณรายการใดไม่พอ ต้องทำเรื่องขอโอนเปลี่ยนแปลงงบประมาณไปยังสถาบันฯ (ส่งทุกวันพฤหัสบดี)</li>
+        <li><strong>งบลงทุน (ค่าครุภัณฑ์):</strong> ต้องดำเนินการจัดซื้อจัดจ้างและก่อหนี้ผูกพัน (PO) ให้แล้วเสร็จภายใน <strong>ไตรมาสที่ 2</strong></li>
+      </ul>
+    </div>
+
+    <h3 style="color: #0f172a; margin-top: 30px;">📊 ผังภาพรวมกระบวนการทำงาน 10 ขั้นตอน</h3>
+    <div class="mermaid-box">
+      <div class="mermaid">
+flowchart TD
+    S1["1. ผู้ขอยืม / ขอเบิก<br>ทำเอกสารผ่านตามลำดับขั้นของกลุ่มงาน"] --> S2["2. ผ่านการตรวจโดยงานการเงิน<br>ตรวจระเบียบและอัตราค่าใช้จ่าย"]
+    S2 --> S3["3. ผ่านการตรวจโดยงานแผน<br>ตรวจรหัสกิจกรรมย่อย/งบประมาณ<br>(ส่งคืนผู้ขอเบิก)"]
+    S3 --> S4["4. อัปโหลดลงระบบสารบรรณ e-Office<br>เสนอแฟ้มเอกสารอิเล็กทรอนิกส์"]
+    S4 --> S5["5. ผอ. พิจารณาอนุมัติ<br>ลงนามอนุมัติในระบบ e-Office"]
+    S5 --> S6["6. งานการเงินรับเรื่อง<br>ส่งกลับผู้ขอยืม/ขอเบิกเพื่อลงระบบ ERP"]
+    S6 --> S7["7. บันทึกเข้าระบบ SMART ERPG<br>ผูกพันงบ (bgdt07) / ขอยืม / จัดซื้อจัดจ้าง<br>(ผอ. กดอนุมัติในระบบ ERP)"]
+    S7 --> S8["8. งานการเงิน วางฎีกาเบิก<br>ดึงเลขที่ใบผูกพันตั้งฎีกาในระบบ ERP"]
+    S8 --> S9["9. เบิกจ่ายและโอนเงิน<br>โอนเงินเข้าบัญชีผู้ยืม/จ่ายตรงผู้ขาย"]
+    S9 --> S10["10. ส่งใช้เงินยืมผ่านระบบ ERP<br>นำหลักฐานค่าใช้จ่ายจริงมาหักล้าง/ปิดงาน"]
+      </div>
+    </div>
+
+    <h3 style="color: #0f172a; margin-top: 35px;">📋 ตารางรายละเอียดขั้นตอนการปฏิบัติงาน 10 ขั้นตอน</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 50px; text-align: center;">ลำดับ</th>
+          <th style="width: 170px;">ขั้นตอน</th>
+          <th style="width: 130px;">ผู้รับผิดชอบ</th>
+          <th style="width: 120px;">ระบบที่ใช้</th>
+          <th>รายละเอียดการปฏิบัติงานและเอกสาร</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">1</td>
+          <td><strong>จัดทำเอกสารและผ่านลำดับขั้น</strong></td>
+          <td>ผู้ขอยืม / ขอเบิก</td>
+          <td><span class="badge badge-paper">เอกสาร (กระดาษ)</span></td>
+          <td>จัดทำบันทึกข้อความขออนุมัติโครงการ/กิจกรรม พร้อมรายละเอียดประมาณการค่าใช้จ่าย เสนอผ่านหัวหน้างาน/รอง ผอ. ตามสายงาน</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">2</td>
+          <td><strong>ผ่านการตรวจโดยการเงิน</strong></td>
+          <td>เจ้าหน้าที่การเงิน</td>
+          <td><span class="badge badge-paper">เอกสาร (กระดาษ)</span></td>
+          <td>ตรวจสอบประเภทรายจ่าย อัตราค่าใช้จ่ายตามระเบียบราชการ (ค่าตอบแทน, เบี้ยเลี้ยง, ที่พัก, วัสดุ ฯลฯ) เพื่อความถูกต้องก่อนเสนอ</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">3</td>
+          <td><strong>ผ่านงานแผนงานฯ</strong></td>
+          <td>เจ้าหน้าที่งานแผน</td>
+          <td><span class="badge badge-paper">เอกสาร + ทะเบียนคุม</span></td>
+          <td>ตรวจสอบความสอดคล้องกับแผนปฏิบัติราชการ แหล่งเงิน ผลผลิต โครงการ <strong>รหัสกิจกรรมย่อย</strong> และยอดงบประมาณคงเหลือจริง <em>(เมื่อตรวจแล้วส่งคืนเอกสารให้ผู้ขอเบิก)</em></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">4</td>
+          <td><strong>อัปโหลดลงระบบ e-Office</strong></td>
+          <td>ผู้ขอยืม / ขอเบิก</td>
+          <td><span class="badge badge-eoffice">ระบบ e-Office</span></td>
+          <td>นำบันทึกข้อความฉบับจริงที่ผ่านการลงนามตรวจสอบจากการเงินและงานแผนแล้ว สแกนอัปโหลดเข้าสู่ระบบสารบรรณอิเล็กทรอนิกส์ (e-Office) เสนอ ผอ.</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">5</td>
+          <td><strong>ผู้อำนวยการอนุมัติ</strong></td>
+          <td>ผอ. วชช.หนองบัวลำภู</td>
+          <td><span class="badge badge-eoffice">ระบบ e-Office</span></td>
+          <td>ผู้อำนวยการพิจารณาลงนามและอนุมัติโครงการ/การใช้จ่ายงบประมาณในระบบ e-Office</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">6</td>
+          <td><strong>การเงินส่งกลับผู้ขอเบิก</strong></td>
+          <td>เจ้าหน้าที่การเงิน</td>
+          <td><span class="badge badge-eoffice">ระบบ e-Office</span></td>
+          <td>งานการเงินรับเรื่องที่ ผอ. อนุมัติแล้วจากระบบ e-Office และทำการส่งต่อกลับไปยังผู้ขอยืม/ขอเบิก เพื่อแจ้งให้เริ่มดำเนินการในระบบ SMART ERPG</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">7</td>
+          <td><strong>อัปโหลดระบบ ERP ผูกพันงบ</strong><br><small style="color: red;">(ต้องทำก่อนจัดกิจกรรม)</small></td>
+          <td>ผู้ขอเบิก / เจ้าหน้าที่พัสดุ</td>
+          <td><span class="badge badge-erp">SMART ERPG</span></td>
+          <td>เข้าระบบ <a href="https://erp.iccs.ac.th" target="_blank">erp.iccs.ac.th</a> ทำรายการ:<br>
+          • <strong>บันทึกผูกพันงบประมาณ (bgdt07):</strong> เลือกโครงการ/รหัสกิจกรรมย่อย และระบุยอดเงิน<br>
+          • <strong>สัญญายืมเงิน:</strong> บันทึกเอกสารขอยืมเงินทดรอง<br>
+          • <strong>จัดซื้อจัดจ้าง:</strong> บันทึก PO ผ่านกลุ่มงานพัสดุ<br>
+          <em>*ผอ. กดอนุมัติในระบบ ERP เพื่อออก "เลขที่ใบผูกพันงบประมาณ"*</em></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">8</td>
+          <td><strong>วางฎีกาเบิก</strong></td>
+          <td>เจ้าหน้าที่การเงิน</td>
+          <td><span class="badge badge-erp">SMART ERPG</span></td>
+          <td>งานการเงินดึงเลขที่ใบผูกพันงบประมาณ / สัญญายืมเงิน มาสร้างฎีกาเบิกเงินในระบบ ERP เพื่อตั้งยอดเตรียมจ่าย</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">9</td>
+          <td><strong>เบิกจ่ายและโอนเงิน</strong></td>
+          <td>เจ้าหน้าที่การเงิน</td>
+          <td><span class="badge badge-bank">ระบบธนาคาร / KTB</span></td>
+          <td>อนุมัติการจ่ายเงิน โอนเงินยืมเข้าบัญชีผู้ยืม หรือโอนเงินจ่ายตรงให้แก่ผู้ขาย/ผู้รับจ้าง พร้อมพิมพ์หลักฐานการจ่ายเงิน</td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: bold;">10</td>
+          <td><strong>ส่งใช้เงินยืมผ่านระบบ ERP</strong></td>
+          <td>ผู้ยืมเงิน / การเงิน</td>
+          <td><span class="badge badge-erp">SMART ERPG</span></td>
+          <td>เมื่อดำเนินโครงการเสร็จสิ้น นำใบเสร็จและหลักฐานจ่ายจริงมาส่งใช้เงินยืมในระบบ ERP หากมีเงินเหลือให้ออกใบเสร็จรับคืนเงินยืมทดรองเพื่อปิดสัญญาอย่างถูกต้อง</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #cbd5e1; font-size: 13px; color: #64748b; text-align: center;">
+      เอกสารฉบับนี้จัดทำโดย วิทยาลัยชุมชนหนองบัวลำภู เพื่อใช้เป็นแนวทางปฏิบัติงานภายในองค์กร • ระบบ SMART ERPG (<a href="https://erp.iccs.ac.th" target="_blank">https://erp.iccs.ac.th</a>)
+    </div>
+  </div>
+</body>
+</html>

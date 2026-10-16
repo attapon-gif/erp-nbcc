@@ -1,0 +1,431 @@
+{
+  "itemTraining": [
+    {
+      "valueid": 2,
+      "value": "1",
+      "text": null,
+      "description": "1. การบริหารงบประมาณประจำปี",
+      "parent_value": null,
+      "seq": 0,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 3,
+      "value": "1.1",
+      "text": null,
+      "description": "1.1 ขั้นตอนการจัดทำงบประมาณประจำปี",
+      "parent_value": "1",
+      "seq": 1,
+      "content_id": 1284,
+      "can_upload": false
+    },
+    {
+      "valueid": 4,
+      "value": "1.2",
+      "text": null,
+      "description": "1.2 ขั้นตอนการโอนงบ/เงินประจำงวด/เปลี่ยนแปลงรายการครุภัณฑ์",
+      "parent_value": "1",
+      "seq": 2,
+      "content_id": 1286,
+      "can_upload": false
+    },
+    {
+      "valueid": 7,
+      "value": "2",
+      "text": null,
+      "description": "2. การเบิกจ่ายเงินงบประมาณ",
+      "parent_value": null,
+      "seq": 4,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 8,
+      "value": "2.1",
+      "text": null,
+      "description": "2.1 ขั้นตอนขอเบิกเงินงบประมาณผ่านใบสั่งซื้อสั่งจ้าง (จ่ายตรง)",
+      "parent_value": "2",
+      "seq": 5,
+      "content_id": 1288,
+      "can_upload": false
+    },
+    {
+      "valueid": 9,
+      "value": "2.2",
+      "text": null,
+      "description": "2.2 ขั้นตอนขอเบิกเงินงบประมาณ เพื่อขอรับเงินเข้าสถาบัน",
+      "parent_value": "2",
+      "seq": 6,
+      "content_id": 1287,
+      "can_upload": false
+    },
+    {
+      "valueid": 11,
+      "value": "3",
+      "text": null,
+      "description": "3 การเบิกจ่ายเงินนอกประมาณ/เงินรายได้",
+      "parent_value": null,
+      "seq": 7,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 24,
+      "value": "3.1",
+      "text": null,
+      "description": "3.1 ขั้นตอนเบิกจ่ายทั่วไป เงินนอกงบประมาณ/เงินรายได้",
+      "parent_value": "3",
+      "seq": 8,
+      "content_id": 1289,
+      "can_upload": false
+    },
+    {
+      "valueid": 25,
+      "value": "4",
+      "text": null,
+      "description": "4. การยืมเงินทดรอง",
+      "parent_value": null,
+      "seq": 9,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 26,
+      "value": "4.1",
+      "text": null,
+      "description": "4.1 ขั้นตอนการจ่ายเงินยืมตามเอกสารขอยืม",
+      "parent_value": "4",
+      "seq": 10,
+      "content_id": 1295,
+      "can_upload": false
+    },
+    {
+      "valueid": 27,
+      "value": "4.2",
+      "text": null,
+      "description": "4.2 ขั้นตอนการเบิกชดใช้เงินยืม (กรณียืมจากเงินงบประมาณ)",
+      "parent_value": "4",
+      "seq": 11,
+      "content_id": 1294,
+      "can_upload": false
+    },
+    {
+      "valueid": 28,
+      "value": "4.3",
+      "text": null,
+      "description": "4.3 ขั้นตอนขอเบิกชดใช้เงินยืม (กรณียืมจากเงินทดรองราชการ)",
+      "parent_value": "4",
+      "seq": 12,
+      "content_id": 1293,
+      "can_upload": false
+    },
+    {
+      "valueid": 29,
+      "value": "4.4",
+      "text": null,
+      "description": "4.4 ขั้นตอนการรับคืนเงินยืมทดรอง",
+      "parent_value": "4",
+      "seq": 13,
+      "content_id": 1291,
+      "can_upload": false
+    },
+    {
+      "valueid": 30,
+      "value": "5",
+      "text": null,
+      "description": "5. การรับ-คืนเงินหลักประกันสัญญา",
+      "parent_value": null,
+      "seq": 14,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 31,
+      "value": "5.1",
+      "text": null,
+      "description": "5.1 ขั้นตอนการรับหลักประกันสัญญา",
+      "parent_value": "5",
+      "seq": 15,
+      "content_id": 1290,
+      "can_upload": false
+    },
+    {
+      "valueid": 32,
+      "value": "5.2",
+      "text": null,
+      "description": "5.2 ขั้นตอนการคืนหลักประกันสัญญา",
+      "parent_value": "5",
+      "seq": 16,
+      "content_id": 1292,
+      "can_upload": false
+    },
+    {
+      "valueid": 33,
+      "value": "6",
+      "text": null,
+      "description": "6 การรับเงิน-ตั้งเบิกเงินวิจัยและบริการวิชาการ",
+      "parent_value": null,
+      "seq": 17,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 39,
+      "value": "6.1",
+      "text": null,
+      "description": "6.1 การรับเงิน-ตั้งเบิกเงินวิจัยและบริการวิชาการ",
+      "parent_value": "6",
+      "seq": 18,
+      "content_id": 1296,
+      "can_upload": false
+    },
+    {
+      "valueid": 34,
+      "value": "7",
+      "text": null,
+      "description": "7 การรับ-จ่ายเงินทั่วไป",
+      "parent_value": null,
+      "seq": 19,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 40,
+      "value": "7.1",
+      "text": null,
+      "description": "7.1 ขั้นตอนการรับเงินทั่วไป",
+      "parent_value": "7",
+      "seq": 20,
+      "content_id": 1297,
+      "can_upload": false
+    },
+    {
+      "valueid": 41,
+      "value": "7.2",
+      "text": null,
+      "description": "7.2 ขั้นตอนการรับเงินเบิกเกินส่งคืน",
+      "parent_value": "7",
+      "seq": 21,
+      "content_id": 1298,
+      "can_upload": false
+    },
+    {
+      "valueid": 42,
+      "value": "7.3",
+      "text": null,
+      "description": "7.3 ขั้นตอนการจ่ายเงินทั่วไป",
+      "parent_value": "7",
+      "seq": 22,
+      "content_id": 1299,
+      "can_upload": false
+    },
+    {
+      "valueid": 35,
+      "value": "8",
+      "text": null,
+      "description": "8 การกระทบยอดบัญชีธนาคาร",
+      "parent_value": null,
+      "seq": 23,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 43,
+      "value": "8.1",
+      "text": null,
+      "description": "8.1 ขั้นตอนการกระทบยอดบัญชีธนาคาร",
+      "parent_value": "8",
+      "seq": 24,
+      "content_id": 1300,
+      "can_upload": false
+    },
+    {
+      "valueid": 36,
+      "value": "9",
+      "text": null,
+      "description": "9 การโอนข้อมูลเข้าระบบบัญชีและปิดงบการเงิน",
+      "parent_value": null,
+      "seq": 25,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 44,
+      "value": "9.1",
+      "text": null,
+      "description": "9.1 ขั้นตอนการโอนข้อมูลการบันทึกบัญชีเข้าระบบบัญชี",
+      "parent_value": "9",
+      "seq": 26,
+      "content_id": 1301,
+      "can_upload": false
+    },
+    {
+      "valueid": 45,
+      "value": "9.2",
+      "text": null,
+      "description": "9.2 ขั้นตอนการบันทึกใบสำคัญโดยตรง",
+      "parent_value": "9",
+      "seq": 27,
+      "content_id": 1302,
+      "can_upload": false
+    },
+    {
+      "valueid": 46,
+      "value": "9.3",
+      "text": null,
+      "description": "9.3 ขั้นตอนการออกรายงานงบการเงิน",
+      "parent_value": "9",
+      "seq": 28,
+      "content_id": 1303,
+      "can_upload": false
+    },
+    {
+      "valueid": 37,
+      "value": "10",
+      "text": null,
+      "description": "10 การบริหารงานระบบสินทรัพย์",
+      "parent_value": null,
+      "seq": 29,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 47,
+      "value": "10.1",
+      "text": null,
+      "description": "10.1 ขั้นตอนการรับและลงทะเบียนทรัพย์สิน",
+      "parent_value": "10",
+      "seq": 30,
+      "content_id": 1304,
+      "can_upload": false
+    },
+    {
+      "valueid": 48,
+      "value": "10.2",
+      "text": null,
+      "description": "10.2 ขั้นตอนการโอนย้ายทรัพย์สิน",
+      "parent_value": "10",
+      "seq": 31,
+      "content_id": 1285,
+      "can_upload": false
+    },
+    {
+      "valueid": 49,
+      "value": "10.3",
+      "text": null,
+      "description": "10.3 ขั้นตอนการตรวจนับและตัดจำหน่าย",
+      "parent_value": "10",
+      "seq": 32,
+      "content_id": 1305,
+      "can_upload": false
+    },
+    {
+      "valueid": 50,
+      "value": "10.4",
+      "text": null,
+      "description": "10.4 ขั้นตอนการซ่อมบำรุงทรัพย์สิน",
+      "parent_value": "10",
+      "seq": 33,
+      "content_id": 1306,
+      "can_upload": false
+    },
+    {
+      "valueid": 38,
+      "value": "11",
+      "text": null,
+      "description": "11 การบริหารงานระบบคลังวัสดุ",
+      "parent_value": null,
+      "seq": 34,
+      "content_id": null,
+      "can_upload": false
+    },
+    {
+      "valueid": 51,
+      "value": "11.1",
+      "text": null,
+      "description": "11.1 ขั้นตอนการรับวัสดุ",
+      "parent_value": "11",
+      "seq": 35,
+      "content_id": 1307,
+      "can_upload": false
+    },
+    {
+      "valueid": 52,
+      "value": "11.2",
+      "text": null,
+      "description": "11.2 ขั้นตอนการเบิกจ่ายวัสดุ",
+      "parent_value": "11",
+      "seq": 36,
+      "content_id": 1308,
+      "can_upload": false
+    },
+    {
+      "valueid": 53,
+      "value": "11.3",
+      "text": null,
+      "description": "11.3 ขั้นตอนโอนย้ายวัสดุ",
+      "parent_value": "11",
+      "seq": 37,
+      "content_id": 1309,
+      "can_upload": false
+    },
+    {
+      "valueid": 54,
+      "value": "11.4",
+      "text": null,
+      "description": "11.4 ขั้นตอนการตรวจนับวัสดุประจำปี",
+      "parent_value": "11",
+      "seq": 38,
+      "content_id": 1310,
+      "can_upload": false
+    }
+  ],
+  "langCodes": [],
+  "parentValue": [
+    {
+      "value": "1",
+      "text": null
+    },
+    {
+      "value": "2",
+      "text": null
+    },
+    {
+      "value": "3",
+      "text": null
+    },
+    {
+      "value": "4",
+      "text": null
+    },
+    {
+      "value": "5",
+      "text": null
+    },
+    {
+      "value": "6",
+      "text": null
+    },
+    {
+      "value": "7",
+      "text": null
+    },
+    {
+      "value": "8",
+      "text": null
+    },
+    {
+      "value": "9",
+      "text": null
+    },
+    {
+      "value": "10",
+      "text": null
+    },
+    {
+      "value": "11",
+      "text": null
+    }
+  ]
+}
